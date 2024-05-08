@@ -26,17 +26,28 @@ class _CartScreenState extends ConsumerState<CartScreen> {
         padding: const EdgeInsets.all(30),
         child: Column(
           children: [
-              Text('hi'),
-              Text(cartProducts.toString())
-            // Column(
-            //   children: [
-            //     cartProducts.map((product, index) {
-            //       return Column(
-            //         children: [Image.asset(product[index].image)],
-            //       );
-            //     })
-              // ], // output cart products here
-
+            Column(
+              children: cartProducts.map((product) {
+                return Container(
+                  padding: EdgeInsets.symmetric(vertical: 10),
+                  child: Row(
+                    children: [
+                      Image.asset(
+                        product.image,
+                        width: 60,
+                        height: 60,
+                      ),
+                      const SizedBox(width: 10),
+                      Text(product.title),
+                      Expanded(
+                        child: const SizedBox(width: 10),
+                      ),
+                      Text('\$${product.price.toString()}'),
+                    ],
+                  ),
+                );
+              }).toList(), // output cart products here
+            ),
             // output totals here
           ],
         ),

@@ -17,7 +17,9 @@ final productsProvider = Provider((ref) {
 });
 
 final saleProductProvider = Provider((ref) {
-  // print(allProducts.where((product) => product.price < 50));
-  // print(allProducts.where((product) => product.price < 50).toList());
-  return allProducts.where((product) => product.price < 50).toList;
+  return allProducts.where((product) => product.price < 50).toList();
 });
+
+// final saleProductProvider = Provider((ref) {
+//   return allProducts.where((product) => product.price < 50).toList();
+// });
